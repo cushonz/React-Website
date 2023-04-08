@@ -11,7 +11,7 @@
   height: 100%;
   display: flex;
   align-items: center;
-  padding-left: 150px;
+  padding-left: 15px;
 }
 
 /* Apply border-radius to make the image circular */
@@ -19,6 +19,7 @@
   width: 70px;
   border-radius: 50%;
   overflow: hidden;
+  
 }
 
 .navbar .rightSide {
