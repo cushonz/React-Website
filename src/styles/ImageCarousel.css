@@ -1,0 +1,7 @@
+/* ImageCarousel.css */
+.carousel .slide img {
+    height: 400px; /* Set a fixed height */
+    width: 100%;
+    object-fit: contain; /* Maintain aspect ratio while filling the given dimensions */
+  }
+  
