@@ -7,6 +7,7 @@
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
     overflow: hidden;
     transition: transform 0.3s;
+    margin: 10px;
   }
   
   .card:hover {
@@ -24,14 +25,14 @@
   
   .card-img {
     width: 100%;
-    background-color: aliceblue;
+    background-color: #121619;
     height: 100%;
     object-fit: contain;
   }
   
   .card-info {
     display: flex;
-    background-color:grey;
+    background-image: linear-gradient(to bottom, #3c4957, #97a0a0);
     flex-direction: column;
     justify-content: center;
     align-items: center;
@@ -39,7 +40,7 @@
   
   .card-title {
     font-size: 18px;
-    margin-bottom: 8px;
+    margin-bottom: 0px;
   }
   
   .card-price {
@@ -47,3 +48,7 @@
     color: #333;
   }
   
+  .card-link {
+    text-decoration: none;
+    color: inherit;
+  }

@@ -1,0 +1,49 @@
+/* ProductDetail.module.css */
+.product{
+    height: 100vh;
+    background-image: linear-gradient(to bottom, #121619, #05383a);    
+}
+
+.title{
+    color:#E0E0E0;
+}
+
+.details{
+    background-color: transparent;
+    border-radius: 10px;
+    margin:auto;
+}
+
+.details p{
+    padding: 10px;
+    color: aliceblue;
+}
+
+.container {
+    max-width: 800px;
+    margin: 0;
+    padding: 20px;
+}
+
+.imageContainer {
+    display: flex;
+    justify-content: flex-start; /* Change this line to left-align the image */
+    align-items: center;
+    width: 300px;
+    height: 200px;
+    margin-bottom: 20px;
+    overflow: hidden;
+    position: relative;
+}
+
+.imageContainer img {
+    position: absolute;
+    top: 50%;
+    left: 0; /* Change this line to position the image on the left edge */
+    width: auto;
+    height: auto;
+    transform: translateY(-50%);
+    max-width: 100%;
+    max-height: 100%;
+    border-radius: 10px;
+}
