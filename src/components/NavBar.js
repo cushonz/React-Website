@@ -13,18 +13,18 @@ function NavBar() {
   return (
     <div className="navbar">
       <div className="leftSide" id={openLinks ? "open" : "close"}>
-        <img src={logo} alt="logo"/>
+        <img src={logo} alt="logo" />
         <div className="hiddenLinks">
           <Link to="/"> Home</Link>
           <Link to="/products"> Products</Link>
-          <Link to="/about"> About Us</Link>
+          <Link to="/about-us"> About Us</Link>
           <Link to="/contact"> Contact Us</Link>
         </div>
       </div>
       <div className="rightSide">
         <Link to="/"> Home</Link>
         <Link to="/products"> Products</Link>
-        <Link to="/about"> About Us</Link>
+        <Link to="/about-us"> About Us</Link>
         <Link to="/contact"> Contact Us</Link>
         <button onClick={toggleNav}>
           <MenuOpenIcon />

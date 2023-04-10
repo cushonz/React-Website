@@ -1,0 +1,14 @@
+.main{
+    background-image: linear-gradient(to bottom, #121619, #05383a);
+    height: 100vh;
+}
+
+.title{
+    background-color: grey;
+    border-radius: 10px;
+    width:20%;
+    height: 100px;
+    margin:0px;
+    padding:10px;
+}
+
