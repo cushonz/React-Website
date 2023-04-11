@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 import products from "../product_data/data";
 import styles from "../styles/ProductDetail.module.css";
+import ShoppingCart from "./ShoppingCart";
 
 const ProductDetail = () => {
   const { productID } = useParams();
@@ -34,6 +35,7 @@ const ProductDetail = () => {
           {/* Other product details */}
         </div>
       </div>
+      <ShoppingCart />
     </div>
   );
 };

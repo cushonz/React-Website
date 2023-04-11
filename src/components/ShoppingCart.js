@@ -1,38 +1,44 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import "../styles/ShoppingCart.css";
 
 function ShoppingCart() {
   const [cartItems, setCartItems] = useState([]);
 
-  // function to add an item to the cart
+  // load cart items from local storage when the component mounts
+  useEffect(() => {
+    const storedItems = localStorage.getItem("cartItems");
+    if (storedItems) {
+      setCartItems(JSON.parse(storedItems));
+    }
+  }, []);
+
+  // function to add an item to the cart and update local storage
   function addItemToCart(item) {
-    // check if item already exists in cart
-    const existingItem = cartItems.find(
+    const index = cartItems.findIndex(
       (cartItem) => cartItem.name === item.name
     );
-    if (existingItem) {
-      // increase quantity if item already exists in cart
-      setCartItems(
-        cartItems.map((cartItem) =>
-          cartItem.name === item.name
-            ? { ...cartItem, quantity: cartItem.quantity + 1 }
-            : cartItem
-        )
-      );
-    } else {
-      // add item to cart if it doesn't already exist
+    if (index === -1) {
       setCartItems([...cartItems, { ...item, quantity: 1 }]);
+    } else {
+      const updatedCartItems = [...cartItems];
+      updatedCartItems[index].quantity += 1;
+      setCartItems(updatedCartItems);
     }
+    localStorage.setItem("cartItems", JSON.stringify(cartItems));
   }
 
-  // function to remove an item from the cart
+  // function to remove an item from the cart and update local storage
   function removeItemFromCart(item) {
-    const updatedCartItems = cartItems.map((cartItem) =>
-      cartItem.name === item.name
-        ? { ...cartItem, quantity: cartItem.quantity - 1 }
-        : cartItem
+    const index = cartItems.findIndex(
+      (cartItem) => cartItem.name === item.name
     );
-    setCartItems(updatedCartItems.filter((cartItem) => cartItem.quantity > 0));
+    const updatedCartItems = [...cartItems];
+    updatedCartItems[index].quantity -= 1;
+    if (updatedCartItems[index].quantity <= 0) {
+      updatedCartItems.splice(index, 1);
+    }
+    setCartItems(updatedCartItems);
+    localStorage.setItem("cartItems", JSON.stringify(cartItems));
   }
 
   // function to handle checkout
@@ -52,7 +58,7 @@ function ShoppingCart() {
             {cartItems.map((item, index) => (
               <li key={index} className="cart-item">
                 <span>
-                  {item.name} - {item.price} - Quantity: {item.quantity}
+                  {item.name} - {item.price} - x{item.quantity}
                 </span>
                 <button onClick={() => removeItemFromCart(item)}>Remove</button>
               </li>
