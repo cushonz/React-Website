@@ -1,6 +1,7 @@
 import React from "react";
 import "../styles/about-us.css";
 import zc from "../assets/founder.jpg";
+import ShoppingCart from "../components/ShoppingCart";
 
 function AboutUs() {
   return (
@@ -31,6 +32,7 @@ function AboutUs() {
         </p>
       </div>
       <img src={zc} className="founder-pic"></img>
+      <ShoppingCart />
     </div>
   );
 }

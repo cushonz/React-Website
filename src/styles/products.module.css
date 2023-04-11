@@ -1,0 +1,10 @@
+.main{
+    background-image: linear-gradient(to bottom, #121619, #296e7a);
+    height: 100vh;
+    margin-right: 18%;
+}
+
+.bg{
+    background-image: linear-gradient(to bottom, #121619, #296e7a);
+    height: 100vh;
+}

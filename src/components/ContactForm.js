@@ -1,6 +1,11 @@
 // ContactForm.js
 import React, { useState } from "react";
 import styles from "../styles/contact-us.module.css";
+import emailjs from "emailjs-com";
+
+const emailjsUserID = "GDqNUj-4NBt4hQzSB";
+const emailjsServiceID = "service_wcqmeyy";
+const emailjsTemplateID = "template_qlkuhii";
 
 const ContactForm = () => {
   const [formData, setFormData] = useState({
@@ -16,9 +21,33 @@ const ContactForm = () => {
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    // Implement your API call or other logic to handle the form submission here
-    console.log(formData);
+
+    // Send the email using EmailJS
+    emailjs
+      .sendForm(
+        emailjsServiceID,
+        emailjsTemplateID,
+        event.target,
+        emailjsUserID
+      )
+      .then(
+        (result) => {
+          console.log("Email successfully sent!", result);
+        },
+        (error) => {
+          console.error("Email failed to send: ", error);
+        }
+      );
+
+    // Clear the form data
+    setFormData({
+      name: "",
+      email: "",
+      message: "",
+    });
   };
+
+  // ...
 
   return (
     <form onSubmit={handleSubmit} className={styles.formContainer}>
