@@ -6,12 +6,39 @@ function ShoppingCart() {
 
   // function to add an item to the cart
   function addItemToCart(item) {
-    setCartItems([...cartItems, item]);
+    // check if item already exists in cart
+    const existingItem = cartItems.find(
+      (cartItem) => cartItem.name === item.name
+    );
+    if (existingItem) {
+      // increase quantity if item already exists in cart
+      setCartItems(
+        cartItems.map((cartItem) =>
+          cartItem.name === item.name
+            ? { ...cartItem, quantity: cartItem.quantity + 1 }
+            : cartItem
+        )
+      );
+    } else {
+      // add item to cart if it doesn't already exist
+      setCartItems([...cartItems, { ...item, quantity: 1 }]);
+    }
   }
 
   // function to remove an item from the cart
   function removeItemFromCart(item) {
-    setCartItems(cartItems.filter((cartItem) => cartItem !== item));
+    const updatedCartItems = cartItems.map((cartItem) =>
+      cartItem.name === item.name
+        ? { ...cartItem, quantity: cartItem.quantity - 1 }
+        : cartItem
+    );
+    setCartItems(updatedCartItems.filter((cartItem) => cartItem.quantity > 0));
+  }
+
+  // function to handle checkout
+  function handleCheckout() {
+    // Here you would implement your checkout logic, such as sending the cart data to a server
+    alert("Checkout button clicked!");
   }
 
   return (
@@ -20,16 +47,21 @@ function ShoppingCart() {
       {cartItems.length === 0 ? (
         <p>Your cart is empty.</p>
       ) : (
-        <ul>
-          {cartItems.map((item, index) => (
-            <li key={index} className="cart-item">
-              <span>
-                {item.name} - {item.price}
-              </span>
-              <button onClick={() => removeItemFromCart(item)}>Remove</button>
-            </li>
-          ))}
-        </ul>
+        <>
+          <ul>
+            {cartItems.map((item, index) => (
+              <li key={index} className="cart-item">
+                <span>
+                  {item.name} - {item.price} - Quantity: {item.quantity}
+                </span>
+                <button onClick={() => removeItemFromCart(item)}>Remove</button>
+              </li>
+            ))}
+          </ul>
+          <button className="checkout-button" onClick={handleCheckout}>
+            Checkout
+          </button>
+        </>
       )}
       <h3>Available Products</h3>
       <ul className="product-list">

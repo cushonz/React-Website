@@ -4,9 +4,7 @@ import "../styles/Home.css";
 import listing1 from "../assets/cute_plant.jpg";
 import listing2 from "../assets/potted_plant.jpg";
 import listing3 from "../assets/hanging_plant.jpg";
-import Card from "../components/Card";
 import ImageCarousel from "../components/ImageCarousel.js";
-import ShoppingCart from "../components/ShoppingCart";
 
 const products = [
   {
