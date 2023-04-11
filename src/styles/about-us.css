@@ -1,14 +1,40 @@
-.main{
-    background-image: linear-gradient(to bottom, #121619, #05383a);
-    height: 100vh;
-}
+.main {
+    display: flex;
+    flex-direction: column;
+    background-image: linear-gradient(to bottom, #121619, #296e7a);
+    background-size: cover;
+    align-items: center;
+    padding: 20px;
+    min-height: 100vh;
+  }
+  
+  .founder-pic{
+    padding-top: 10px;
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+  }
 
-.title{
-    background-color: grey;
-    border-radius: 10px;
-    width:20%;
-    height: 100px;
-    margin:0px;
-    padding:10px;
-}
-
+  .about-us-title {
+    text-align: center;
+    color: whitesmoke;
+    margin-bottom: 20px;
+  }
+  
+  .blurb {
+    border-radius: 50px;
+    padding: 15px;
+    background-color: #121619;
+    position: relative;
+    max-width: 800px;
+    text-align: justify;
+    color: whitesmoke;
+    line-height: 1.5;
+    font-size: 18px;
+    margin: 0 auto;
+  }
+  
+  p {
+    margin-bottom: 20px;
+  }
+  

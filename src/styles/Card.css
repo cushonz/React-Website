@@ -32,7 +32,7 @@
   
   .card-info {
     display: flex;
-    background-image: linear-gradient(to bottom, #3c4957, #97a0a0);
+    background-image: linear-gradient(to bottom, #121619, #97a0a0);
     flex-direction: column;
     justify-content: center;
     align-items: center;

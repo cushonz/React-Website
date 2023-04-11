@@ -28,12 +28,17 @@ const products = [
 function Home() {
   return (
     <div className="home">
-      <h1 className="title"> Perfect Prints 3D</h1>
-      <ImageCarousel products={products} />
-      {/* <div>
-        <img src={bg} className="background"></img>
-      </div> */}
-      <div className="headerContainer"></div>
+      <div className="img-rotate">
+        <ImageCarousel products={products} />
+      </div>
+      <div className="title">
+        <h1> Perfect Prints 3D</h1>
+      </div>
+      <div className="headerContainer">
+        <p className="welcome">
+          Hello and welcome to the PerfectPrints 3D online shop!
+        </p>
+      </div>
 
       <Link to="/products">
         <button> Shop Now </button>
